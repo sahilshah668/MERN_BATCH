@@ -9,45 +9,80 @@
     <h1>1234</h1>
 
     <script>
-      // let array = [1, 2, 2, 2, "a", "a", "a", 7, 8];
-      // let counts = {};
-      // let mostFrequent = [];
-      // const array2 = array.forEach((data, i) => {
-      //   let word = data;
+      const a = {
+        greet:'hello'
+      }
+      let b  = 'hello world'
 
-      //   if (counts[word] == undefined) {
-      //     counts[word] = 1;
-      //   } else {
-      //     counts[word] = counts[word] + 1;
-      //   }
-      //   if (mostFrequent.length <= 0) {
-      //     mostFrequent.push(counts);
-      //   }
-      // });
-      // console.log(mostFrequent);
+      // function greet(name) {
+        // a  = "hola"
+        // let arr = ['1','2','3']
+        //   let c = arr.length
 
-      // let colors = ['red','yellow','green']
-      // let colorshades = ['blood-red','lemon-yellow','light greeen']
-
-      // let colors1 = [...colors,...colorshades,'black','blue']
-
-      // console.log(colors1)
-
-      // let array = [1, 2, 3, 4, 5, 6];
-      // function sumOf(...numbers) {
-      //   return numbers.reduce((sum, val) => {
-      //     return sum + val;
-      //   }, 0);
+          // let string = 'array arr is having' + "  " + c + "  "  + 'elements'
+          // console.log(string)
+        //     console.log(`hello ${name}`)
       // }
-      // console.log(sumOf(1,2,3,4,5,6,7,8,9,0));
-      const mathLibrary = {
-        product(...rest) {
-          return this.multiply(...rest);
-        },
-        multiply(a, b) {
-          return a * b;
-        }
-      };
+      
+      const greet = (name) => console.log(`hello ${name}`)
+
+
+
+      function personalInfo (name,age,hobby="none") {
+        console.log(`name:${name}`)
+        console.log(`age:${age}`)
+        console.log(`hobby${hobby}`)
+
+      }
+
+      function math (...rest) {
+        add(...rest)
+        sub(...rest)
+      }
+
+
+
+      function add(a,b) {
+        console.log(a + b)
+      }
+
+      function sub(a,b) {
+        console.log(a - b)
+      }
+      math(4,5,8)
+      // personalInfo('sahil',22,'programming')
+
+      let arr1 = ['1','2','3']
+      let arr2 = ['4','5','6']
+      let arr3 = [...arr1,...arr2,'7','8']
+      console.log(arr3)
+
+
+
+
+      // console.log(a)
+      // console.log(b)
+      // console.log(c)
+      // var a = "hello"
+      // const b = "hola"
+      // let c = "wellness"
+
+      //high order array methods
+      //1. forEach
+
+    //   let a = [1, 2, 3, 4, 5];
+      //    let b = a.forEach(function(num,i) {
+      //         console.log(num)
+      //         console.log(i)
+      //     })
+    //   let b = a.map(function(num, i) {
+    //     return num*2
+    //   });
+
+    //   console.log(b);
+
+  
+
     </script>
   </body>
 </html>
