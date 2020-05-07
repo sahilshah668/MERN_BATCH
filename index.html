@@ -9,10 +9,10 @@
     <h1>1234</h1>
 
     <script>
-      const a = {
-        greet:'hello'
-      }
-      let b  = 'hello world'
+      // const a = {
+      //   greet:'hello'
+      // }
+      // let b  = 'hello world'
 
       // function greet(name) {
         // a  = "hola"
@@ -24,40 +24,141 @@
         //     console.log(`hello ${name}`)
       // }
       
-      const greet = (name) => console.log(`hello ${name}`)
+      // const greet = (name) => console.log(`hello ${name}`)
 
 
 
-      function personalInfo (name,age,hobby="none") {
-        console.log(`name:${name}`)
-        console.log(`age:${age}`)
-        console.log(`hobby${hobby}`)
+      // function personalInfo (name,age,hobby="none") {
+      //   console.log(`name:${name}`)
+      //   console.log(`age:${age}`)
+      //   console.log(`hobby${hobby}`)
+
+      // }
+
+      // function math (...rest) {
+      //   add(...rest)
+      //   sub(...rest)
+      // }
+
+
+
+      // function add(a,b) {
+      //   console.log(a + b)
+      // }
+
+      // function sub(a,b) {
+      //   console.log(a - b)
+      // }
+      // math(4,5,8)
+      // // personalInfo('sahil',22,'programming')
+
+      // let arr1 = ['1','2','3']
+      // let arr2 = ['4','5','6']
+      // let arr3 = [...arr1,...arr2,'7','8']
+      // console.log(arr3)
+
+            //Destructuring
+      
+      // let arr1 = ['1','2','3','4','5']
+      // const [one,digit,...all] = arr1
+      // console.log(one)
+      // console.log(two)
+      // console.log(all)
+      // function arr() {
+      //   return ['hello', 'i' , 'am']
+      // }
+      // const [greet,...all] = arr()
+
+      // console.log(greet)
+      // console.log(all)
+      // const person = {
+      //   id:1,
+      //   name:'sahil',
+      //   age:22
+      // }
+      // const {id,name,age} = person
+      // console.log(id)
+      // console.log(name)
+      // console.log(age)
+      // let flag = true
+      // let data = {}
+      // let flagValue = flag ? console.log('true') : console.log(false)
+
+
+
+
+      //   //object literals
+      // const movieData = [
+      //   {
+      //     title: "Wolf of Wall Street",
+      //     price: 300
+      //   },
+      //   {
+      //     title: "Wake Up Sid",
+      //     price: 180
+      //   },
+      //   {
+      //     title: "ff7",
+      //     price: 200
+      //   }
+      // ];
+      // function MovieStore(data) {
+      //   return {
+      //     data,
+      //     totalPrice() {
+      //       return this.data.reduce((total, movies) => {
+      //         return movies.price + total
+      //       }, 0);
+      //     },
+      //     movieDetail(title) {
+      //       return this.data.find(data => console.log(data.title === title));
+      //     }
+      //   };
+      // }
+      // const MovieCal = MovieStore(movieData);
+      // MovieCal.totalPrice();
+      // console.log(MovieCal.movieDetail("ff7"))
+      // console.log(MovieCal.totalPrice())
+
+
+
+
+      //classess
+
+      class hello {
+
+        constructor(name) {
+          this.name = name
+        }
+
+         greet() {
+          console.log(`hello ${this.name}`)
+        }
+      }
+
+      class animals {
+        constructor (name,breed,legs,color) {
+          this.name = name
+          this.breed = breed
+          this.legs = legs
+          this.color = color
+        }
+
+        getAnimalsDetails() {
+          console.log(` ${this.name} ${this.breed} ${this.legs} ${this.color}`)  
+        }
+
 
       }
 
-      function math (...rest) {
-        add(...rest)
-        sub(...rest)
-      }
+      let h = new hello('sahil shah')
+
+      h.greet()
 
 
+      let ani = new animals('tiger','white tiger','4' ,'white')
 
-      function add(a,b) {
-        console.log(a + b)
-      }
-
-      function sub(a,b) {
-        console.log(a - b)
-      }
-      math(4,5,8)
-      // personalInfo('sahil',22,'programming')
-
-      let arr1 = ['1','2','3']
-      let arr2 = ['4','5','6']
-      let arr3 = [...arr1,...arr2,'7','8']
-      console.log(arr3)
-
-
+      ani.getAnimalsDetails()
 
 
       // console.log(a)
