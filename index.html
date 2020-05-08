@@ -125,40 +125,40 @@
 
       //classess
 
-      class hello {
+      // class hello {
 
-        constructor(name) {
-          this.name = name
-        }
+      //   constructor(name) {
+      //     this.name = name
+      //   }
 
-         greet() {
-          console.log(`hello ${this.name}`)
-        }
-      }
+      //    greet() {
+      //     console.log(`hello ${this.name}`)
+      //   }
+      // }
 
-      class animals {
-        constructor (name,breed,legs,color) {
-          this.name = name
-          this.breed = breed
-          this.legs = legs
-          this.color = color
-        }
+      // class animals {
+      //   constructor (name,breed,legs,color) {
+      //     this.name = name
+      //     this.breed = breed
+      //     this.legs = legs
+      //     this.color = color
+      //   }
 
-        getAnimalsDetails() {
-          console.log(` ${this.name} ${this.breed} ${this.legs} ${this.color}`)  
-        }
-
-
-      }
-
-      let h = new hello('sahil shah')
-
-      h.greet()
+      //   getAnimalsDetails() {
+      //     console.log(` ${this.name} ${this.breed} ${this.legs} ${this.color}`)  
+      //   }
 
 
-      let ani = new animals('tiger','white tiger','4' ,'white')
+      // }
 
-      ani.getAnimalsDetails()
+      // let h = new hello('sahil shah')
+
+      // h.greet()
+
+
+      // let ani = new animals('tiger','white tiger','4' ,'white')
+
+      // ani.getAnimalsDetails()
 
 
       // console.log(a)
@@ -171,18 +171,69 @@
       //high order array methods
       //1. forEach
 
-    //   let a = [1, 2, 3, 4, 5];
-      //    let b = a.forEach(function(num,i) {
-      //         console.log(num)
-      //         console.log(i)
-      //     })
-    //   let b = a.map(function(num, i) {
-    //     return num*2
-    //   });
+      let a = [1, 2, 3, 4, 5,6,7,8, 9, 10];
 
-    //   console.log(b);
+        // {
+        //   recordType: 'affiltate'
 
-  
+        // }
+        
+        // {
+        //   recordType: 'affiltate'
+        // }
+        
+        // {
+        //   recordType: 'staff'
+        // }
+        
+        // {
+        //   recordType: 'staff'
+        // }
+        
+        // {
+        //   recordType: 'staff'
+        // }
+        
+        // {
+        //   recordType: 'staff'
+        // }
+
+      //foreach
+
+        // a.forEach((value,i) => {
+        //   // console.log(value)
+        //   console.log(i)
+        // })
+      
+      //map
+
+      // let b = a.map(function(num, i) {
+      //   return num*2
+      // });
+
+      // console.log(b);
+        
+        //filter
+          let person = [
+            {
+              id:1,
+              name:'sahil'
+            },
+            {
+              id:2,
+              name:'sumit'
+            },
+            {
+              id:3,
+              name:'john'
+            }
+          ]
+        
+        let fil = person.filter(val => {
+          return val.name === 'sahil'
+        })
+
+       console.log(fil) 
 
     </script>
   </body>
