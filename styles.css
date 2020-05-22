@@ -1,0 +1,46 @@
+.main {
+  background-color: red;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.main .para {
+  color: blue;
+}
+
+.main .para1 {
+  color: white;
+}
+
+.main .para:hover {
+  color: yellow;
+}
+
+.secondary {
+  background-color: red;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.secondary .para {
+  color: blue;
+}
+
+.secondary .para1 {
+  color: white;
+}
+
+.secondary .para:hover {
+  color: yellow;
+}
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,33 @@
+@import "./variables";
+
+.main {
+  background-color: $divBackgroundColor;
+  flex-direction: row;
+  justify-content: center;
+  .para {
+    color: $PrimaryFontColor;
+  }
+  .para1 {
+    color: $SecondaryFontColor;
+  }
+
+  .para:hover {
+    color: $HoverColor;
+  }
+}
+
+.secondary {
+    background-color: $divBackgroundColor;
+    flex-direction: row;
+  justify-content: center;
+  .para {
+    color: $PrimaryFontColor;
+  }
+  .para1 {
+    color: $SecondaryFontColor;
+  }
+
+  .para:hover {
+    color: $HoverColor;
+  }
+}
