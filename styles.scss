@@ -15,12 +15,11 @@ body {
 }
 
 a {
-  color: $primaryFontColor;
+  color: settingTextColor($primaryColor);
 }
 
 .showcase {
-  background-color: $primaryColor;
-  color: $primaryFontColor;
+  @include setBackground($primaryColor);
   height: 650px;
 
   nav {
@@ -39,7 +38,7 @@ a {
   }
 
   a {
-    color: $primaryFontColor;
+    color: settingTextColor($primaryColor);
   }
 
   a:hover {
