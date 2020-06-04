@@ -14,14 +14,16 @@ app.engine("handlebars", exphbs());
 app.set("view engine", "handlebars");
 
 app.get("/", (req, res) => {
-  const greet = "Welcome to Mern";
+  const greet = "Welcome to CRUD application";
+  //render method is used to render the handlebars template first parameter
+  //  will be the name of the template file and second paramter you can send the data from server (like  greet) 
   res.render("index", {
     greetMessage: greet,
   });
 });
 
 app.get("/about", (req, res) => {
-  res.send("about");
+  res.render("about")
 });
 
 app.listen(port, () => {
