@@ -45,3 +45,15 @@ Add routes and middleware to it
 6. create index.handlebars file in views directory 
 
 7. create partials (navbar)
+
+
+steps to connect to mongodb
+
+1. create project and cluster on mongodb atlas
+2. go to collection tab and create database 
+3. go to connect tab use connection level api
+4. copy the connection link.
+5. we have to create config folder 
+6. create keys file and export the connect link. 
+7. 
+
