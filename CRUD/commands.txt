@@ -57,3 +57,16 @@ steps to connect to mongodb
 6. create keys file and export the connect link. 
 7. 
 
+steps to create schemas
+1.create models folder
+2.create a js file with the schema name
+
+
+
+//handlebars
+npm i @handlebars/allow-prototype-access -s
+npm i handlebars -s
+
+app.engine("handlebars", exphbs({
+  handlebars: allowInsecurePrototypeAccess(Handlebars)
+}));

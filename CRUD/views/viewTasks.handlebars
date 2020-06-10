@@ -1,0 +1,10 @@
+{{#each task}}
+<div class="card card-body mb-2">
+    <h2>{{title}}</h2>
+    <p>{{details}}</p>
+    <a class="btn btn-dark " href="/edit/task/{{_id}}" >Edit</a>
+</div>
+
+{{else}}
+<h1>No Tasks Found</h1>
+{{/each}}

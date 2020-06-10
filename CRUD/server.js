@@ -2,6 +2,10 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const Handlebars = require("handlebars");
+const {
+  allowInsecurePrototypeAccess,
+} = require("@handlebars/allow-prototype-access");
 const app = express();
 
 const port = 5000;
@@ -21,7 +25,12 @@ mongoose
 const Task = require("./models/Tasks");
 
 //template setup
-app.engine("handlebars", exphbs());
+app.engine(
+  "handlebars",
+  exphbs({
+    handlebars: allowInsecurePrototypeAccess(Handlebars),
+  })
+);
 app.set("view engine", "handlebars");
 
 //body parser setup
@@ -45,6 +54,7 @@ app.get("/about", (req, res) => {
   res.render("about");
 });
 
+//add task @get
 app.get("/add/tasks", (req, res) => {
   let title = "title";
   res.render("add", {
@@ -52,6 +62,37 @@ app.get("/add/tasks", (req, res) => {
   });
 });
 
+//edit task @get
+app.get("/edit/task/:id", (req, res) => {
+  
+  Task.findOne({ _id: req.params.id })
+    .then((data) => {
+      res.render("edit",{
+        title:data.title,
+        details:data.details
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+//get tasks
+app.get("/tasks", (req, res) => {
+  Task.find({})
+    .sort({ date: "desc" })
+    .then((data) => {
+      console.log(data);
+      res.render("viewTasks", {
+        task: data,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+//add task @post
 app.post("/add/tasks", (req, res) => {
   let errors = [];
 
@@ -76,7 +117,7 @@ app.post("/add/tasks", (req, res) => {
     task
       .save()
       .then((data) => {
-        res.redirect("/add/tasks");
+        res.redirect("/tasks");
       })
       .catch((err) => console.log(err));
   }
