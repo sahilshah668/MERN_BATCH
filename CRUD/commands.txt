@@ -70,3 +70,8 @@ npm i handlebars -s
 app.engine("handlebars", exphbs({
   handlebars: allowInsecurePrototypeAccess(Handlebars)
 }));
+
+
+for editing install third party library
+
+1.method override

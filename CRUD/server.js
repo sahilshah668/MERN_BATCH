@@ -3,6 +3,8 @@ const exphbs = require("express-handlebars");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const Handlebars = require("handlebars");
+const methodOverride = require("method-override");
+
 const {
   allowInsecurePrototypeAccess,
 } = require("@handlebars/allow-prototype-access");
@@ -41,6 +43,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
+//method overirde
+app.use(methodOverride("_method"));
+
 app.get("/", (req, res) => {
   const greet = "Welcome to CRUD application";
   //render method is used to render the handlebars template first parameter
@@ -64,12 +69,10 @@ app.get("/add/tasks", (req, res) => {
 
 //edit task @get
 app.get("/edit/task/:id", (req, res) => {
-  
   Task.findOne({ _id: req.params.id })
     .then((data) => {
-      res.render("edit",{
-        title:data.title,
-        details:data.details
+      res.render("edit", {
+        task: data,
       });
     })
     .catch((err) => {
@@ -121,6 +124,22 @@ app.post("/add/tasks", (req, res) => {
       })
       .catch((err) => console.log(err));
   }
+});
+
+app.put("/tasks/:id", (req, res) => {
+  Task.findOne({ _id: req.params.id })
+    .then((data) => {
+      data.title = req.body.title;
+      data.details = req.body.details;
+      data.save()
+        .then((data) => {
+          res.redirect("/tasks");
+        })
+        .catch((err) => console.log(err));
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
 app.listen(port, () => {
