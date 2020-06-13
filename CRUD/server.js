@@ -147,35 +147,33 @@ app.put("/tasks/:id", (req, res) => {
 //  here passbook is an schema which we are importing from model folder
 // const PassBook = require("./model/passbook");
 
-// app.get("/budget", (req, res) => {
-//   PassBook.find({}).then((data) => {
-//     //block scope
-//     let creditTotal;
-//     let debitTotal;
-//     // here res will be in array
-//     data.forEach((value) => {
-//       if (value.type === "credit") {
-//         //in this we are storing value of credit
-//          creditTotal = res.reduce((total, val) => {
-//           return (total += val.credit);
-//         }, 0);
-//       } else {
-//         //in this we are storing value of debit
-//         debitTotal = res.reduce((total, val) => {
-//           return (total += val.debit);
-//         }, 0);
-//       }
-//     });
-//     res.render('budget',{
-//       // you will use this data in handlebars 
-//       //{{debiTotal}} {{creditTotal}} 
-//       //budgetAll is an array of object (hint using each helper in handleabars)
-//       debitTotal,
-//       creditTotal,
-//       budgetAll:data
-//     })
-//   });
-// });
+app.get("/budget", (req, res) => {
+  PassBook.find({}).then((data) => {
+    //block scope
+    let creditTotal;
+    let debitTotal;
+    // here res will be in array
+    data.forEach((value) => {
+      if (value.type === "credit") {
+        let total = 0;
+        //in this we are storing value of credit
+        creditTotal = total + val.amount;
+      } else {
+        let total = 0;
+        //in this we are storing value of debit
+        debitTotal = total + val.amount;
+      }
+    });
+    res.render("budget", {
+      // you will use this data in handlebars
+      //{{debiTotal}} {{creditTotal}}
+      //budgetAll is an array of object (hint using each helper in handleabars)
+      debitTotal,
+      creditTotal,
+      budgetAll: data,
+    });
+  });
+});
 
 app.listen(port, () => {
   console.log(`port is running on ${port}`);
