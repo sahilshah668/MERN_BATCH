@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const Handlebars = require("handlebars");
 const methodOverride = require("method-override");
+const session = require('express-session')
+const flash = require('express-flash')
 
 const {
   allowInsecurePrototypeAccess,
@@ -45,6 +47,25 @@ app.use(bodyParser.json());
 
 //method overirde
 app.use(methodOverride("_method"));
+
+//session
+app.use(session({
+  secret: 'secret',
+  resave: true,
+  saveUninitialized: true,
+}))
+
+
+//flash
+app.use(flash())
+
+
+//golabal variable 
+app.use((req,res,next) => {
+  res.locals.success_msg = req.flash('success_msg')
+  res.locals.error_msg = req.flash('error_msg')
+  next()
+})
 
 app.get("/", (req, res) => {
   const greet = "Welcome to CRUD application";

@@ -66,6 +66,7 @@ router.get("/add/tasks", (req, res) => {
       task
         .save()
         .then((data) => {
+          req.flash('success_msg','Task addedd successfully')
           res.redirect("/tasks");
         })
         .catch((err) => console.log(err));
