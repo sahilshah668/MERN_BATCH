@@ -1,11 +1,20 @@
 const express = require("express");
 const bcrypt = require("bcryptjs");
+const passport = require("passport");
 const router = express.Router();
 
 const User = require("../models/User");
 
 router.get("/login", (req, res) => {
   res.render("login");
+});
+
+router.post("/login", (req, res, next) => {
+  passport.authenticate("local", {
+    successRedirect: "/tasks",
+    failureRedirect: "/login",
+    failureFlash: true,
+  })(req, res, next);
 });
 
 router.get("/Register", (req, res) => {
@@ -35,37 +44,44 @@ router.post("/Register", (req, res) => {
       error: errors,
     });
   } else {
-    User.findOne({ email: req.body.email }).then((user) => {
-      if (user) {
-        req.flash('error_msg','User already exist with this email!')
-        res.render({
-          name: req.body.name,
-          email: req.body.email,
-        });
-      } else {
-        const newUser = new User({
-          name: req.body.name,
-          email: req.body.email,
-          password: req.body.password,
-        });
-        bcrypt.genSalt(10, (err, salt) => {
-          bcrypt.hash(newUser.password, salt, function (err, hash) {
-            if (err) throw err;
-            newUser.password = hash;
-            newUser
-              .save()
-              .then(() => {
-                req.flash('success_msg','Registered successfully!')
-                res.redirect("/login",);
-              })
-              .catch((err) => {
-                console.log(err);
-              });
+    User.findOne({ email: req.body.email })
+      .then((user) => {
+        if (user) {
+          req.flash("error_msg", "User already exist with this email!");
+          res.redirect("/Register");
+        } else {
+          const newUser = new User({
+            name: req.body.name,
+            email: req.body.email,
+            password: req.body.password,
           });
-        });
-      }
-    });
+          bcrypt.genSalt(10, (err, salt) => {
+            bcrypt.hash(newUser.password, salt, function (err, hash) {
+              if (err) throw err;
+              newUser.password = hash;
+              newUser
+                .save()
+                .then(() => {
+                  req.flash("success_msg", "Registered successfully!");
+                  res.redirect("/login");
+                })
+                .catch((err) => {
+                  console.log(err);
+                });
+            });
+          });
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
+});
+
+router.get("/logout", (req, res) => {
+  req.logOut();
+  req.flash("success_msg", "You are logged out");
+  res.redirect("/login");
 });
 
 module.exports = router;
