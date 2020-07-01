@@ -3,6 +3,7 @@ const app = express();
 const exphbs = require("express-handlebars");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const passport = require('passport')
 // const Handlebars = require("handlebars");
 // const passport = require('passport')
 // const methodOverride = require("method-override");
@@ -25,6 +26,16 @@ const bodyParser = require("body-parser");
 //   .catch((err) => console.log(err));
 
 //requiring mongoose model
+
+//initializinf passport 
+
+require('./config/passport')(passport)
+
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 
 //template setup
 app.engine("handlebars", exphbs());

@@ -8,7 +8,7 @@ const methodOverride = require("method-override");
 const session = require('express-session')
 const flash = require('express-flash')
 
-const {
+const { 
   allowInsecurePrototypeAccess,
 } = require("@handlebars/allow-prototype-access");
 const app = express();
