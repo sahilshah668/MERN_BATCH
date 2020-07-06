@@ -7,6 +7,7 @@ const passport = require('passport')
 const methodOverride = require("method-override");
 const session = require('express-session')
 const flash = require('express-flash')
+const cookieParser = require('cookie-parser')
 
 const { 
   allowInsecurePrototypeAccess,
@@ -48,6 +49,9 @@ app.use(bodyParser.json());
 
 //method overirde
 app.use(methodOverride("_method"));
+
+//cookie parser
+app.use(cookieParser())
 
 //session
 app.use(session({

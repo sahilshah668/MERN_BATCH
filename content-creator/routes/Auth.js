@@ -1,8 +1,9 @@
 const express = require("express");
 const passport = require("passport");
 const router = express.Router();
+const {ensureGuest} = require('../helper/authHelper')
 
-router.get("/", (req, res) => {
+router.get("/", ensureGuest ,(req, res) => {
   res.render("unAuthenticated/login");
 });
 
@@ -19,5 +20,14 @@ router.get(
     res.redirect("/newsfeed");
   }
 );
+
+
+router.get('/verify',(req,res) => {
+  if(req.user) {
+    console.log(req.user)
+  }else {
+    console.log('no auth')
+  }
+})
 
 module.exports = router;
