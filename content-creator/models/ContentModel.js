@@ -6,6 +6,12 @@ const ContentSchema = Schema({
     type: String,
     required: true,
   },
+  name: {
+    type: String,
+  },
+  image: {
+    type: String,
+  },
   title: {
     type: String,
     required: true,
@@ -26,6 +32,18 @@ const ContentSchema = Schema({
     type: Boolean,
     default: true,
   },
+  comments:[{
+    commentBody:{
+      type:String,
+    },
+    commentingUser:{
+      type:String
+    },
+    commentDate:{
+      type:Date,
+      default:Date.now()
+    }
+  }],
   date: {
     type: Date,
     default: Date.now(),
