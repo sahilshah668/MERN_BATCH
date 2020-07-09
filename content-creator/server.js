@@ -59,6 +59,11 @@ app.engine("handlebars", exphbs());
 
 app.set("view engine", "handlebars");
 
+//public folder
+app.use(express.static(path.join(__dirname, "public")))
+
+
+
 //body parser setup
 
 // parse application/x-www-form-urlencoded
