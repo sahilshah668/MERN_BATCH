@@ -3,12 +3,13 @@ import Main from "./components/Main";
 import Main1 from "./components/Main1";
 
 import "./App.css";
-
+import ClickCounter from "./components/ClickCounter";
+import HoverCounter from "./components/HoverCounter";
 function App() {
   return (
     <React.Fragment>
-      <Main />
-      <Main1 />
+      <ClickCounter name="sahil" />
+      <HoverCounter  />
     </React.Fragment>
   );
 }

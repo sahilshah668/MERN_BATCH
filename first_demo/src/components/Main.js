@@ -6,6 +6,7 @@ class Main extends Component {
     super();
     this.state = {
       show: false,
+      text: "",
     };
   }
 
@@ -14,30 +15,33 @@ class Main extends Component {
       show: !this.state.show,
     });
   };
-  render() {
-      const {show} = this.state
 
-      let btn 
-    if(show) {
-        btn = (
-            <h1>when show</h1>
-        )
-    }else {
-        btn = (
-            <h1>not showed</h1>
-        )
+  onHandleChange = (e) => {
+    this.setState({
+      text: e.target.value,
+    });
+  };
+  render() {
+    const { show, text } = this.state;
+
+    let btn;
+    if (show) {
+      btn = <h1>when show</h1>;
+    } else {
+      btn = <h1>not showed</h1>;
     }
     return (
       <React.Fragment>
         <Header title="ReactDemo" bool={show} />
         <div>
           <button onClick={this.onButtonClick}>Show</button>
-          {show ? (
-            <div>
-              <h1>im Showed</h1>
-            </div>
-          ) : null}
-          {btn}
+          <input
+            type="text"
+            value={text}
+            name="text"
+            onChange={this.onHandleChange}
+          />
+          <h3>{text}</h3>
         </div>
       </React.Fragment>
     );
