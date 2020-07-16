@@ -1,7 +1,8 @@
-import React, { Component } from "react";
-import Task from "./Task";
+import React from "react";
 
-export default class Tasks extends Component {
+const Context = React.createContext();
+
+export class Provider extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -34,27 +35,14 @@ export default class Tasks extends Component {
       ],
     };
   }
-  deleteTask = (id) => {
-    let tasks = this.state.tasks.filter((task) => {
-      return task.id !== id;
-    });
-    this.setState({
-      tasks: tasks,
-    });
-  };
   render() {
-    const { tasks } = this.state;
     return (
-      <div>
-        {tasks.map((task) => (
-          <Task
-            key={task.id}
-            title={task.title}
-            id={task.id}
-            deleteTask={this.deleteTask}
-          />
-        ))}
-      </div>
+      <Context.Provider value={this.state}>
+        {this.props.children}
+      </Context.Provider>
     );
   }
 }
+
+export const Consumer = Context.Consumer
+
