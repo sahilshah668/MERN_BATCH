@@ -2,6 +2,21 @@ import React from "react";
 
 const Context = React.createContext();
 
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "DELETE_TASK":
+      return {
+        ...state,
+        tasks: state.tasks.filter((task) => task.id !== action.payload),
+      };
+    case "ADD_TASK":
+      return {
+        ...state,
+        tasks: [ action.payload,...state.tasks],
+      };
+  }
+};
+
 export class Provider extends React.Component {
   constructor() {
     super();
@@ -33,6 +48,9 @@ export class Provider extends React.Component {
           description: "lorem ipsum",
         },
       ],
+      dispatch: (action) => {
+        this.setState((state) => reducer(state, action));
+      },
     };
   }
   render() {
@@ -44,5 +62,4 @@ export class Provider extends React.Component {
   }
 }
 
-export const Consumer = Context.Consumer
-
+export const Consumer = Context.Consumer;
