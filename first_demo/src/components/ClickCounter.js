@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import withCounter from "./withCounter";
 class ClickCounter extends Component {
+ 
+
   render() {
     const { count, onButtonClick } = this.props;
     return (

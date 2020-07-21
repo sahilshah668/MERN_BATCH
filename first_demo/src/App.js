@@ -1,17 +1,14 @@
 import React from "react";
-import Main from "./components/Main";
-import Main1 from "./components/Main1";
-
-import "./App.css";
+import NewComponent from "./components/NewComponent";
 import ClickCounter from "./components/ClickCounter";
 import HoverCounter from "./components/HoverCounter";
-function App() {
+
+export default function App() {
   return (
-    <React.Fragment>
+    <div>
+      {/* <NewComponent title="hello world" /> */}
       <ClickCounter name="sahil" />
-      <HoverCounter  />
-    </React.Fragment>
+      <HoverCounter />
+    </div>
   );
 }
-
-export default App;

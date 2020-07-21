@@ -23,3 +23,5 @@ const withCounter = (Wrappedcomponent,Number) => {
 }
 
 export default  withCounter
+
+
