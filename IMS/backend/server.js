@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const bodyParser = require('body-parser')
+const bodyParser = require("body-parser");
+const passport = require("passport");
 
 const app = express();
 
@@ -13,17 +14,19 @@ mongoose
     console.log("mongodb is connected");
   });
 
-
-  // parse application/x-www-form-urlencoded
+// parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // parse application/json
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
-const Resource = require('./routes/Resources')
+passport.initialize()
+require("./config/passport")(passport);
 
-app.use('/',Resource)
+const Resource = require("./routes/Resources");
+const Auth = require("./routes/Auth");
 
+app.use("/", Resource, Auth);
 
 app.listen(PORT, () => {
   console.log(`port is runny on ${PORT}`);
