@@ -6,6 +6,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../config/keys");
 const passport = require("passport");
+
 router.post("/login", (req, res) => {
   User.findOne({ email: req.body.email }).then((user) => {
     if (!user) {
@@ -14,17 +15,21 @@ router.post("/login", (req, res) => {
       bcrypt.compare(req.body.password, user.password, function (err, isMatch) {
         if (isMatch) {
           const payload = {
-            _id: user._id,
+            id: user.id,
             name: user.name,
-            email: user.email,
-            branch: user.branch,
+            branch:user.branch,
+            email:user.email
           };
-          jwt.sign(payload, keys.secretOrKey, (err, token) => {
-            res.json({
-              success: true,
-              token: "Bearer " + token,
-            });
-          });
+          jwt.sign(
+            payload,
+            keys.secretOrKey,
+            (err, token) => {
+              res.json({
+                success: true,
+                token: "Bearer " + token
+              });
+            }
+          );
         } else {
           res.status(400).json({ msg: "password not matched" });
         }
