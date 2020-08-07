@@ -1,6 +1,7 @@
 import axios from "../../utils/axios";
-
-const AUTH_ACTIION_TYPES = {
+import setAuthToken from '../../utils/setAuthToken'
+import jwt_decode from 'jwt-decode'
+export const AUTH_ACTIION_TYPES = {
   ON_REGISTER_SUCCESS: "AUTH/ON_REGISTER_SUCCESS",
   ON_REGISTER_FAILURE: "AUTH/ON_REGISTER_FAILURE",
   ON_LOGIN_SUCCESS: "AUTH/ON_LOGIN_SUCCESS",
@@ -53,7 +54,14 @@ export const onLogin = (userData, history) => {
       .post("http://localhost:5000/login", userData)
       .then((res) => {
         if (res.status === 200) {
-          console.log(res.data);
+          const {token} = res.data
+          setAuthToken(token)
+          localStorage.setItem('jwtToken',token)
+          const decoded = jwt_decode(token)
+          // console.log(decoded)
+          dispatch(onLoginSuccess(decoded))
+          history.push('/dashboard')
+
         } else {
           console.log(res.status);
         }

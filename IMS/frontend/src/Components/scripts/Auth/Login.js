@@ -9,7 +9,18 @@ class Login extends Component {
       email: "",
       password: "",
     };
+    console.log('im constructor')
   }
+
+  componentDidMount() {
+    const {authenticated} = this.props.auth
+    if(authenticated) {
+      this.props.history.push('/dashboard')
+    }
+    console.log('im running after render')
+  }
+
+
 
   _onHandleChange = (e) => {
     this.setState({
@@ -28,6 +39,8 @@ class Login extends Component {
     this.props.onLogin(newUser, this.props.history);
   };
   render() {
+    console.log('im render')
+
     const { email, password } = this.state;
     return (
       <React.Fragment>
@@ -66,4 +79,10 @@ class Login extends Component {
   }
 }
 
-export default connect(null, { onLogin })(withRouter(Login));
+function mapStateToProps(state) {
+  return {
+    auth: state.auth,
+  };
+}
+
+export default connect(mapStateToProps, { onLogin })(withRouter(Login));
