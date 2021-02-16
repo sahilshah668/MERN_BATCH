@@ -1,0 +1,31 @@
+login/register
+
+
+students:(crud)
+7th  , 8th 9th 10th (student list)
+board ICSE CBSE
+personal detail
+marks detail
+performance
+fees
+
+
+teacher:(crud)
+7th 8th 9th 10th 
+board ICSE CBSE
+personal detail
+professional detail
+payslip
+experince 
+
+
+resourcces(crud)
+7th 8th 9th 10th 
+board ICSE CBSE
+subject
+title
+description
+file
+
+
+

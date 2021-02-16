@@ -1,0 +1,101 @@
+1.first command to initialzie empty node repo
+npm init 
+
+2.To install dependency in particular project we need to use.
+npm i <package name> -s
+here i stands for install and -s stands for save 
+
+Note: npm i express -s
+
+
+3. Install express-handlebars
+npm i express-handlebars -s
+
+
+
+(Not everytime) install nodemon
+npm i nodemon -g
+
+
+requests//
+
+1. get request (to bring stuff from the server) //Read
+2. post request (to send some stuff to server) //Create
+3. put request (to update the data on the server) //update
+4. delete request (to delete the data on the server) // Delete
+
+
+steps to create project:
+
+1. after creating a empty folder,go inside that folder using cmd or git bash and write 
+npm init 
+
+2. install dependency required:
+1.express(madatory)
+2.install express-handlebars
+
+3.create server.js file
+listen to the port
+Add routes and middleware to it 
+
+4.create views directory(with layouts directory  )
+
+5. create main.handlebars(parent file for all the handlebars file)
+
+6. create index.handlebars file in views directory 
+
+7. create partials (navbar)
+
+
+steps to connect to mongodb
+
+1. create project and cluster on mongodb atlas
+2. go to collection tab and create database 
+3. go to connect tab use connection level api
+4. copy the connection link.
+5. we have to create config folder 
+6. create keys file and export the connect link. 
+7. 
+
+steps to create schemas
+1.create models folder
+2.create a js file with the schema name
+
+
+
+//handlebars
+npm i @handlebars/allow-prototype-access -s
+npm i handlebars -s
+
+app.engine("handlebars", exphbs({
+  handlebars: allowInsecurePrototypeAccess(Handlebars)
+}));
+
+
+for editing install third party library
+
+1.method override
+
+
+//to use flash messaging
+
+1. install express-session express-flash
+2. to configure middleware functions
+3. initialzie global variable
+4. create msg partial file in views
+5. initial partial in main.handlebars
+6. use it wherever you want using req.flash('success_msg','message')
+
+
+
+/to use passport
+
+1. login route (post)
+2. we have use passport.authenticate functionality inside login route
+3. we have create passport.js inside config folder
+4. inside passport.js we have to initialzie the strategy we gonna use (in our case localStrategy)
+5. we have require('config/passport') inside serverjs and pass the passport as a paramter
+6. we will be serialize and deserialize user to store data in cokkies and manintain the session (initialize passport middleware)
+6. we will be setting global variable for passport realted error and to access the user
+7. we will be user as a global variable to put condition inside navbar 
+8. simply create logout route(get) and use req.logout to logout
