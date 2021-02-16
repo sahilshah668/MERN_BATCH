@@ -3,6 +3,9 @@
 ////
 
 
+
+
+
   // const a = {
       //     greet:"hello",
       //     name:'sahil'
@@ -33,7 +36,7 @@
       //   });
 
       // console.log(b);
-      // const arr = [
+      // const arr = [[
       //   {
       //     id:1,
       //     name:'sahil',
@@ -49,12 +52,12 @@
       //     name:'rahul',
       //     age:19
       //   }
-      // ]
+      // ]]
 
-      // let fil = arr.filter(function(val) {
-      //   return val.age > 20 && val.id === 2
-      //   // console.log(val)
-      // })
+      let fil = arr.filter(function(val) {
+        return val.age > 20 && val.id === 2
+        // console.log(val)
+      })
       // console.log(fil)
       //freetutorials.com
       //  let finder = arr.find(function(val) {

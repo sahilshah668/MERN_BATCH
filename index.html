@@ -1,53 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>1234</h1>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<h1>1234</h1>
 
-    <script>
-      // let array = [1, 2, 2, 2, "a", "a", "a", 7, 8];
-      // let counts = {};
-      // let mostFrequent = [];
-      // const array2 = array.forEach((data, i) => {
-      //   let word = data;
+		<script>
+			//variables *************************
 
-      //   if (counts[word] == undefined) {
-      //     counts[word] = 1;
-      //   } else {
-      //     counts[word] = counts[word] + 1;
-      //   }
-      //   if (mostFrequent.length <= 0) {
-      //     mostFrequent.push(counts);
-      //   }
-      // });
-      // console.log(mostFrequent);
+			//const //global/local
+			//let // global/local
 
-      // let colors = ['red','yellow','green']
-      // let colorshades = ['blood-red','lemon-yellow','light greeen']
+			// you cant change the value of const in runtime
+			const x = 20;
 
-      // let colors1 = [...colors,...colorshades,'black','blue']
+			console.log(x);
+			//  you can change the value of let in runtime
+			let y = 50;
 
-      // console.log(colors1)
+			y = x;
 
-      // let array = [1, 2, 3, 4, 5, 6];
-      // function sumOf(...numbers) {
-      //   return numbers.reduce((sum, val) => {
-      //     return sum + val;
-      //   }, 0);
-      // }
-      // console.log(sumOf(1,2,3,4,5,6,7,8,9,0));
-      const mathLibrary = {
-        product(...rest) {
-          return this.multiply(...rest);
-        },
-        multiply(a, b) {
-          return a * b;
-        }
-      };
-    </script>
-  </body>
+			console.log(y);
+
+			//********************objects and arrays***************
+
+			//Objects
+
+			const obj = {
+				name: 'sahil',
+				age: 23,
+				func: () => {
+					console.log('im a function');
+				},
+			};
+
+			obj.name = 'more';
+			obj.func();
+			console.log(obj);
+
+			// arrays
+
+			const arr = [1, 2, 3, 4, 5];
+
+			const arr1 = [
+				{
+					name: 'sahil',
+					age: 23,
+					func: () => {
+						console.log('im a function');
+					},
+				},
+				{
+					name: 'more',
+					age: 23,
+					func: () => {
+						console.log('im a function');
+					},
+				},
+				{
+					name: 'sonu',
+					age: 23,
+					func: () => {
+						console.log('im a function');
+					},
+				},
+			];
+
+			//********** Functions **************
+
+			// normal functions
+
+			//simple function without parameter
+
+			function func() {
+				console.log('this is my first func');
+			}
+
+			//simple function with parameter
+
+			function withParam(welcome) {
+				console.log(welcome);
+			}
+
+			//calling a function
+
+			func();
+			withParam();
+			withParam('hello world');
+
+			//fat arraow function
+
+			const practice = () => {
+				console.log('fat arrow function');
+			};
+
+			//fat arrow with parameters
+
+			const params = (params) => {
+				console.log(params);
+			};
+
+			practice();
+			params('hwllo');
+
+			//functions with variables
+
+			const add = (x, y) => {
+				let c = x + y;
+				console.log(c);
+			};
+
+			add(2, 50);
+
+
+			
+		</script>
+	</body>
 </html>
